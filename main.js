@@ -1,68 +1,31 @@
-
-    document.querySelector('#som_tecla_pom').play();
+function tocaSom (idElementoAudio) {
+    document.querySelector(idElementoAudio).play();
 }
 
-document.querySelector('.tecla_pom').onclick = tocaSomPom;
+const listaDeTeclas = document.querySelectorAll('.tecla');
 
+//para
+for (let contador = 0; contador < listaDeTeclas.length; contador++) {
 
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_${instrumento}`; //template string
 
-document.querySelector('#som_tecla_clap').play();
+    tecla.onclick = function () {
+        tocaSom(idAudio);
+    }
+
+    tecla.onkeydown = function (evento) {
+
+        console.log(evento.code)
+
+       if (evento.code = 'Space') {
+        tecla.classList.add( 'ativa');
+    
 }
 
-document.querySelector('.tecla_clap').onclick = tocaSomClap;
+    tecla.onkeyup = function () {
+        tecla.classList.remove('ativa');
+    }
 
-
-
-
-document.querySelector('#som_tecla_tim').play();
-}
-
-document.querySelector('.tecla_tim').onclick = tocaSomTim;
-
-
-
-
-document.querySelector('#som_tecla_puff').play();
-}
-
-document.querySelector('.tecla_puff').onclick = tocaSomPuff;
-
-
-
-
-document.querySelector('#som_tecla_Splash').play();
-}
-
-document.querySelector('.tecla_Splash').onclick = tocaSomPom;
-
-
-
-
-document.querySelector('#som_tecla_Toim').play();
-}
-
-document.querySelector('.tecla_Toim').onclick = tocaSomPom;
-
-
-
-
-document.querySelector('#som_tecla_Psh').play();
-}
-
-document.querySelector('.tecla_Psh').onclick = tocaSomPom;    
-
-
-
-
-document.querySelector('#som_tecla_Tic').play();
-}
-
-document.querySelector('.tecla_Tic').onclick = tocaSomPom;
-
-
-
-
-document.querySelector('#som_tecla_Tom').play();
-}
-
-document.querySelector('.tecla_Tom').onclick = tocaSomPom;
+    {
