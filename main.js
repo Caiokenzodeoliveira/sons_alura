@@ -46,4 +46,3 @@ tecla.onkeyup = function() {
 
 
 }
-
